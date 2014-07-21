@@ -16,7 +16,6 @@ cabal-version:       >=1.8
 
 executable lxc-bind
   main-is:             Main.hs
-  other-modules:       
   build-depends:       base ==4.6.*, process, filepath, bytestring, regex-pcre-builtin
   hs-source-dirs:      src
   ghc-options:         -W
