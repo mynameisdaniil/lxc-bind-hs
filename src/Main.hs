@@ -17,6 +17,7 @@ main = do
   print containerEntries
   let rules = mapRules configEntries containerEntries
   print rules
+  mapM_ (\rule -> readProcessWithExitCode "iptables" rule "") rules
   return ()
 
 parseConfig::[String] -> [ConfigEntry]
