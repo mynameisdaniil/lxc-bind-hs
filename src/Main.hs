@@ -34,8 +34,3 @@ mapRules::[ConfigEntry] -> [ContainerEntry] -> [[String]]
 mapRules = zipWith (\config container -> if iface config == "any" then
   ["-t nat", "-A lxc-bind", "-p tcp", "--dprot " ++ srcPort config, "-j DNAT", "--to "++ipv4 container++":" ++dstPort config] else
   ["-t nat", "-A lxc-bind", "-i " ++ iface config, "-p tcp", "--dprot " ++ srcPort config, "-j DNAT", "--to "++ipv4 container++":" ++dstPort config])
-
--- applyRule::ConfigEntry -> ContainerEntry -> [String]
--- applyRule config container
---   | iface config == "any" = ["-t nat", "-A lxc-bind", "-p tcp", "--dprot " ++ srcPort config, "-j DNAT", "--to "++ipv4 container++":" ++dstPort config]
---   | otherwise      = ["-t nat", "-A lxc-bind", "-i " ++ iface config, "-p tcp", "--dprot " ++ srcPort config, "-j DNAT", "--to "++ipv4 container++":" ++dstPort config]
